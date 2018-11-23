@@ -6,7 +6,7 @@ export class EDI {
 
 interface Category {
     name: string;
-    categroyID: string;
+    id: string;
     fields: Field[];
 }
 

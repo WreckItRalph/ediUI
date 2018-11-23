@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
 			categories: [
 				{
 					name: "Category 1",
-					categroyID: "Category ID 1_1",
+					id: "Category ID 1_1",
 					fields: [
 						{
 							name: "Field Name 1_1",
@@ -44,7 +44,7 @@ export class MainComponent implements OnInit {
 				},
 				{
 					name: "Category 2",
-					categroyID: "Category ID 2",
+					id: "Category ID 2",
 					fields: [
 						{
 							name: "Field Name 2_1",
@@ -102,7 +102,7 @@ export class MainComponent implements OnInit {
 	}
 
 	removeCategory(index: number) {
-		
+
 	}
 
 	addCategory(index: number) {
