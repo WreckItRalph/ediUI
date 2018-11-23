@@ -1,4 +1,4 @@
-<div class="container-fluid"style="margin-bottom:20px">
+<div class="container-fluid" style="margin-bottom:20px">
   <app-header></app-header>
   <div style="text-align: center;margin: 25px">
     <h2>Loaded Template : {{ediForm.controls.templateName.value}}</h2>
@@ -16,11 +16,8 @@
       </div>
     </div>
     <div class="row" style="margin-top:10px">
-      <div class="col-xs-offset-9 col-xs-1">
-        <button class="btn btn-primary" (click)="saveTemplate()">Save</button>
+      <div class="col-xs-push-10 col-xs-2 btn-group" style="padding:0px">
+        <button class="btn btn-primary" (click)="saveTemplate()" style="width: 50%">Save</button>
+        <button class="btn btn-default" (click)="reset()" style="width: 50%">Cancel</button>
       </div>
-      <div class="col-xs-1">
-          <button class="btn btn-primary" (click)="reset()">Cancel</button>
-        </div>
     </div>
-  </div>
