@@ -12,19 +12,8 @@
       </div>
     </div>
   </div>
-</div>
-<!-- header -->
-<div class="container">
-  <div class="row header">
-    <div class="col-xs-2 header-items">
-        <label for="template">Slect Template</label>
-        <select id="template" class="form-control">
-          <option *ngFor="let template of templateList">{{template}}</option>
-        </select>
-    </div><!-- column 2-->
-  </div>
-  <div class="col-xs-10"></div>
-</div>
+</div><!-- header -->
+
 <input type='button' (click)='dummyClick()' value='Check'/>
 <input type='button' (click)='moveUp()' value='Move Up'/>
 <input type='button' (click)='moveDown()' value='Move Down'/>
