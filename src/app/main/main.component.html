@@ -1,11 +1,13 @@
 <div class="container">
-    <div class="row header">
-      <div class="col-xs-2 header-items">
-          <label for="template">Slect Template</label>
-          <select id="template" class="form-control">
-            <option *ngFor="let template of templateList">{{template}}</option>
-          </select>
-      </div>
+  <div class="row header">
+    <div class="col-xs-2 header-items">
+      <label for="template">Slect Template</label>
+      <select id="template" class="form-control">
+        <option *ngFor="let template of templateList">{{template}}</option>
+      </select>
     </div>
-    <div class="col-xs-10"></div>
   </div>
+  <div class="col-xs-10"></div>
+</div>
+
+<input type='button' (click)='dummy()' value='Test' />

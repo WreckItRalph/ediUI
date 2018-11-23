@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { EDI } from '../EDI';
 
+
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+	selector: 'app-main',
+	templateUrl: './main.component.html',
+	styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
 
-  title = 'ediUI';
+	title = 'ediUI';
 	ediObject: EDI;
-  ediForm: FormGroup;
-  templateList = [
-    't1',
-    't2'
-  ]  
+	ediForm: FormGroup;
+	templateList = [
+		't1',
+		't2'
+	]
 
-  constructor(private formBuilder: FormBuilder){}
+	constructor(private formBuilder: FormBuilder) { }
 
 	ngOnInit() {
 		this.ediObject = {
@@ -62,24 +63,46 @@ export class MainComponent implements OnInit {
 		this.ediForm = this.formBuilder.group({});
 		this.createFormFromObject(this.ediForm, this.ediObject);
 
-		
+
 
 	}
 
 
 
-	public dummyClick(){
+	public dummyClick() {
 		console.log(this);
 	}
 
-	private createFormFromObject(form: FormGroup, object: any){
+	private createFormFromObject(form: FormGroup, object: any) {
 		Object.keys(object).forEach(key => {
-			if (typeof object[key] == "object"){
-				form.addControl(key,this.formBuilder.group({}));
+			if (Array.isArray(object[key])){
+				form.addControl(key, this.formBuilder.array([]));
+				if (object[key].length != 0){
+					this.createFormFromArray(form.controls[key] as FormArray, object[key]);
+				}
+			}
+			else if (typeof object[key] == "object") {
+				form.addControl(key, this.formBuilder.group({}));
 				this.createFormFromObject(form.controls[key] as FormGroup, object[key]);
-			}else{
-				form.addControl(key, this.formBuilder.control(''));
+			} else {
+				form.addControl(key, this.formBuilder.control(object[key]));
 			}
 		});
 	}
+
+	private createFormFromArray(form: FormArray, object: any[]){
+		object.forEach(obj => {
+			let temp = this.formBuilder.group({});
+			form.push(temp);
+			this.createFormFromObject(temp, obj);
+		});
+	}
+
+	dummy(){
+		console.log(this);
+	}
+
+	
+
+
 }
