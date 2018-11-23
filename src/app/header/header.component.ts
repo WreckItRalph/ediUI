@@ -63,14 +63,18 @@ export class HeaderComponent implements OnInit {
 	}
 
 	public onLOBSelect(event: any){
+		this.resetFormControls(['agency','template','version']);
 		this.appService.getAgencies(event.target.value);
+		
 	}
 
 	public onAgencySelect(event: any){
+		this.resetFormControls(['template','version']);
 		this.appService.getTemplates(event.target.value);
 	}
 
 	public onTemplateSelect(event: any){
+		this.resetFormControls(['version']);
 		this.appService.getVersions(event.target.value);
 	}
 
@@ -78,7 +82,9 @@ export class HeaderComponent implements OnInit {
 		this.appService.getDetails(this.form.getRawValue());
 	}
 
-
+	private resetFormControls(controlNames: string[]){
+		controlNames.forEach(control => this.form.get(control).reset());
+	}
 	
 }
 

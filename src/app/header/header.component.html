@@ -50,7 +50,7 @@
   </div>
   <div class="row">
     <div class="col-sm-offset-2 col-sm-2" style="text-align: left">
-      <input type='button' class="btn btn-primary" (click)="getTemplate()" [disabled]='form.get("version").value==""' value='Load Template'/>
+      <input type='button' class="btn btn-primary" (click)="getTemplate()" [disabled]='!form.get("version").value' value='Load Template'/>
     </div>
   </div>
 </div>

@@ -27,7 +27,7 @@ export class AppService {
 	}
 
 	getAgencies(lob: string) {
-		this.http.get(`${this.serverUrl}/getAllAgencies`).subscribe((res:string[]) => {
+		this.http.get(`${this.serverUrl}/getAllAgencies?lineOfBusiness=${lob}`).subscribe((res:string[]) => {
 			this.agencies$.next(res);
 			this.templates$.next([]);
 			this.versions$.next([]);
@@ -37,7 +37,7 @@ export class AppService {
 	}
 
 	getTemplates(agency: string) {
-		this.http.get(`${this.serverUrl}/getAllTemplates`).subscribe((res:string[]) => {
+		this.http.get(`${this.serverUrl}/getAllTemplates?agencyName=${agency}`).subscribe((res:string[]) => {
 			this.templates$.next(res);
 			this.versions$.next([]);
 			
