@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
 	selector: 'app-category',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
+	@Input() category: FormGroup;
 	constructor() { }
 
 	ngOnInit() {
@@ -18,6 +20,14 @@ export class CategoryComponent implements OnInit {
 	}
 
 	moveDown() {
+
+	}
+
+	addCategory(){
+
+	}
+
+	removeCategory(){
 
 	}
 }
