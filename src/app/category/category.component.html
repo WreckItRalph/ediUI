@@ -5,8 +5,8 @@
     <div *ngFor="let field of category.controls.fields?.controls; let i = index">
             <button (click)="addCategory()">Add</button> 
             <button (click)="deleteCategory()">Delete</button>
-            <button (click)="up()">Up</button>
-            <button (click)="down()">down</button>
+            <button (click)="moveFieldUp(i)">Field Up</button>
+            <button (click)="moveFieldDown(i)">Field Down</button>
             <category-field  [field]="field"></category-field>
     </div>
    

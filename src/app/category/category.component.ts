@@ -16,15 +16,15 @@ export class CategoryComponent implements OnInit {
 
 
 	moveFieldUp(index: number) {
-		let temp = this.category.controls['fields'][index-1];
-		this.category.controls['fields'][index-1] = this.category.controls['fields'][index];
-		this.category.controls['fields'][index] = temp;
+		let temp = this.category.controls['fields'].controls[index-1];
+		this.category.controls['fields'].controls[index-1] = this.category.controls['fields'].controls[index];
+		this.category.controls['fields'].controls[index] = temp;
 	}
 
 	moveFieldDown(index: number) {
-		let temp = this.category.controls['fields'][index+1];
-		this.category.controls['fields'][index+1] = this.category.controls['fields'][index];
-		this.category.controls['fields'][index] = temp;
+		let temp = this.category.controls['fields'].controls[index+1];
+		this.category.controls['fields'].controls[index+1] = this.category.controls['fields'].controls[index];
+		this.category.controls['fields'].controls[index] = temp;
 	}
 
 	addField(index: number){

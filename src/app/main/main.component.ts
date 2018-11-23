@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
 			categories: [
 				{
 					name: "Category 1",
-					id: "Category ID 1_1",
+					id: "Category ID 1",
 					fields: [
 						{
 							name: "Field Name 1_1",
@@ -94,11 +94,17 @@ export class MainComponent implements OnInit {
 	}
 
 	moveCategoryUp(index: number) {
-
+		let categoryForm = this.ediForm.controls['categories'] as FormArray;
+		let temp = categoryForm.controls[index-1];
+		categoryForm.controls[index-1] = categoryForm.controls[index];
+		categoryForm.controls[index] = temp;
 	}
 
 	moveCategoryDown(index: number) {
-
+		let categoryForm = this.ediForm.controls['categories'] as FormArray;
+		let temp = categoryForm.controls[index+1];
+		categoryForm.controls[index+1] = categoryForm.controls[index];
+		categoryForm.controls[index] = temp;
 	}
 
 	removeCategory(index: number) {
