@@ -1,3 +1,16 @@
 .table-container{
     border: 1px solid #ccc;
 }
+
+div input:focus{
+    border:1px solid;
+    background-color: white;
+}
+
+input{
+    background-color: rgb(108, 189, 255);
+    border:none;
+    border:1px solid;
+    border-radius: 2px;
+    text-align: center;
+}

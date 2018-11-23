@@ -14,6 +14,7 @@ export class CategoryComponent implements OnInit {
 	@Input() category: FormArray;
 	@Input() settings:any;
 	@Input() categoryIndex:number;
+	clicked:boolean = false;
 	constructor(private formService: FormService) { }
 
 	ngOnInit() {
@@ -47,5 +48,9 @@ export class CategoryComponent implements OnInit {
 	deleteField(index: number){
 		let fieldForm = this.category.controls['fields'] as FormArray;
 		fieldForm.removeAt(index);
+	}
+	
+	categoryClicked(){
+		this.clicked = !this.clicked;
 	}
 }
