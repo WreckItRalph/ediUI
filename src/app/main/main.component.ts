@@ -14,9 +14,9 @@ import { EDI, Category } from '../models/EDI';
 export class MainComponent implements OnInit {
 
 	title = 'ediUI';
-	ediObject: EDI;
-	ediForm: FormGroup;
-	templateList = [
+	public ediObject: EDI;
+	public ediForm: FormGroup;
+	public templateList = [
 		't1',
 		't2'
 	]
@@ -99,45 +99,39 @@ export class MainComponent implements OnInit {
 
 		};
 
-		this.ediForm = this.formBuilder.group({});
-		this.formService.createFormFromObject(this.ediForm, this.ediObject,true);
+		this.reset();
 	}
 
-
-	dummy() {
-		console.log(this);
-	}
-
-	deleteCategory(index: number) {
+	public	deleteCategory(index: number) {
 		let categoryForm = this.ediForm.controls['categories'] as FormArray;
 		categoryForm.removeAt(index);
 	}
 
-	addCategory(index: number = -1) {
+	public addCategory(index: number = -1) {
 		let categoryForm = this.ediForm.controls['categories'] as FormArray;
 		let newCategory = new Category();
 		this.formService.addControlFromObject(categoryForm, newCategory,false, index);
 	}
 
-	updateUISettings(index){
+	public updateUISettings(index){
 		this.uiSettings[index] = !this.uiSettings[index];
 	}
 
 
-	saveTemplate(){
+	public saveTemplate(){
 		let vals = this.ediForm.getRawValue();
 		vals.templateTimestamp = new Date().toISOString();
 		console.log(vals);
 	}
 
-	drop(event: CdkDragDrop<string[]>) {
+	public drop(event: CdkDragDrop<string[]>) {
 		let categoryForm = this.ediForm.controls['categories'] as FormArray;
 		moveItemInArray(categoryForm.controls, event.previousIndex, event.currentIndex);
 	  }
 
-	reset(){
+	public reset(){
 		this.ediForm = this.formBuilder.group({});
-		this.formService.createFormFromObject(this.ediForm, this.ediObject);
+		this.formService.createFormFromObject(this.ediForm, this.ediObject, true);
 	}
 
 
