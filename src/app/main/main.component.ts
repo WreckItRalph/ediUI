@@ -113,7 +113,7 @@ export class MainComponent implements OnInit {
 		categoryForm.removeAt(index);
 	}
 
-	addCategory(index: number) {
+	addCategory(index: number = -1) {
 		let categoryForm = this.ediForm.controls['categories'] as FormArray;
 		let newCategory = new Category();
 		this.formService.addControlFromObject(categoryForm, newCategory,false, index);

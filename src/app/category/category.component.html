@@ -11,6 +11,9 @@
 
     <div class="col-xs-7 col-xs-offset-1" style="margin-bottom: 10px" cdkDropList (cdkDropListDropped)="drop($event)">
         <div id="{{categoryIndex}}" class="panel-collapse collapse">
+            <div *ngIf="category.controls['fields']?.controls.length == 0">
+                <input type='button' value='Add Field' (click)='addField()' />
+            </div>
             <div cdkDrag cdkDragLockAxis="y" *ngFor="let field of category.controls['fields']?.controls; let i = index">
                 <div class="pull-right">
                     <i class="fa fa-plus-circle" aria-hidden="true" (click)="addField(i)"></i>
