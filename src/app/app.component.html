@@ -1,0 +1,27 @@
+<!-- <div class="container">
+  <div class="col-xs-12">
+    <button class="btn btn-primary" (click)="dummy()">Hello</button>
+  </div>
+</div> -->
+<!-- header -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="logo">
+        <img class="img img-responsive" src="./assets/images/logo.png" />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- header -->
+<div class="container">
+  <div class="row header">
+    <div class="col-xs-2 header-items">
+        <label for="template">Slect Template</label>
+        <select id="template" class="form-control">
+          <option *ngFor="let template of templateList">{{template}}</option>
+        </select>
+    </div><!-- column 2-->
+  </div>
+  <div class="col-xs-10"></div>
+</div>

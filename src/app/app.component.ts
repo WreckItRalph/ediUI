@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
 	title = 'ediUI';
 	ediObject: any;
-
+	public templateList:string[] = [
+		"Teplate_1",
+		"Template_2"
+	] 
 	ngOnInit() {
 		this.ediObject = {
 			header: {
@@ -49,4 +52,9 @@ export class AppComponent {
 
 		}
 	}
+
+	public dummy(){
+		console.log(this);
+	}
+
 }

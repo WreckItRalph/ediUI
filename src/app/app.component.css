@@ -1,0 +1,10 @@
+.header {
+    height:150px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.header-items{
+   max-width: 50%;
+   /*  align-self: flex-start; */
+}
