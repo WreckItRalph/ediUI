@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryComponent } from './category/category.component';
 import { FieldComponent } from './field/field.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoryComponent,
-    FieldComponent
+    FieldComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
