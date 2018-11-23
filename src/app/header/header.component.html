@@ -1,40 +1,59 @@
-<div class="container">
+<h2>Welcome to EdiUI!</h2>
+<div class="container-fluid" style="margin-top: 20px; border-top: 1px solid rgb(185, 184, 184);border-bottom: 1px solid rgb(185, 184, 184)">
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
-        <label for="business">Line Of Business</label>
+    <div class="col-xs-12 col-sm-2">
+      <label for="business">Line Of Business :</label>
+    </div>
+    <div class="col-xs-12 col-sm-4">
       <select id="business" class="form-control">
         <option *ngFor="let element of temp" [value]="element">
           {{element}}
         </option>
       </select>
     </div>
-    <div class="col-xs-12 col-sm-6">
-      <label for="agency">Agency</label>
-        <select id="agency" class="form-control">
-          <option *ngFor="let element of temp" [value]="element">
-            {{element}}
-          </option>
-        </select>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <label for="agency">Agency :</label>
     </div>
-    <div class="col-xs-12 col-sm-6">
-        <label for="template">Template</label>
-          <select id="template" class="form-control">
-            <option *ngFor="let element of temp" [value]="element">
-              {{element}}
-            </option>
-          </select>
+    <div class="col-xs-12 col-sm-4">
+      <select id="agency" class="form-control">
+        <option *ngFor="let element of temp" [value]="element">
+          {{element}}
+        </option>
+      </select>
     </div>
-      <div class="col-xs-12 col-sm-6">
-          <label for="templateV">Template Version</label>
-          <input list="browsers" id="templateV" class="form-control">
-
-          <datalist id="browsers" >
-            <option value="Internet Explorer">
-            <option value="Firefox">
-            <option value="Chrome">
-            <option value="Opera">
-            <option value="Safari">
-          </datalist>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <label for="template">Template :</label>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <select id="template" class="form-control">
+        <option *ngFor="let element of temp" [value]="element">
+          {{element}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <label for="templateV">Template Version :</label>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <input list="browsers" id="templateV" class="form-control">
+      <datalist id="browsers">
+        <option value="Internet Explorer">
+        <option value="Firefox">
+        <option value="Chrome">
+        <option value="Opera">
+        <option value="Safari">
+      </datalist>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-2" style="text-align: left">
+      <button class="btn btn-primary">Load Template</button>
+    </div>
   </div>
 </div>

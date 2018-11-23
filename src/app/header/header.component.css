@@ -1,0 +1,17 @@
+.row{
+    margin-top:20px;
+}
+
+.row > div{
+    text-align: right;
+}
+
+.container-fluid .row:last-child{
+    margin-bottom: 20px;
+}
+
+label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+}
