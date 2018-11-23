@@ -46,7 +46,7 @@ export class AppService {
 	}
 
 	getVersions(template: string) {
-		this.http.post(`${this.serverUrl}/getFilesName`, {'File-type':'AL3'}).subscribe((res:string[]) => {
+		this.http.post(`${this.serverUrl}/getFilesName`,{}, {headers:{'File-type':'AL3'}}).subscribe((res:string[]) => {
 			this.versions$.next(res);
 		});
 
