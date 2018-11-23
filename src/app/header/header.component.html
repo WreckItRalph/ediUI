@@ -1,31 +1,32 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <select class="form-control">
+        <label for="business">Line Of Business</label>
+      <select id="business" class="form-control">
         <option *ngFor="let element of temp" [value]="element">
           {{element}}
         </option>
       </select>
     </div>
     <div class="col-xs-12 col-sm-6">
-      <label for=""></label>
-        <select class="form-control">
+      <label for="agency">Agency</label>
+        <select id="agency" class="form-control">
           <option *ngFor="let element of temp" [value]="element">
             {{element}}
           </option>
         </select>
     </div>
     <div class="col-xs-12 col-sm-6">
-        <label for=""></label>
-          <select class="form-control">
+        <label for="template">Template</label>
+          <select id="template" class="form-control">
             <option *ngFor="let element of temp" [value]="element">
               {{element}}
             </option>
           </select>
-      </div>
+    </div>
       <div class="col-xs-12 col-sm-6">
-          <label for=""></label>
-          <input list="browsers" class="form-control">
+          <label for="templateV">Template Version</label>
+          <input list="browsers" id="templateV" class="form-control">
 
           <datalist id="browsers" >
             <option value="Internet Explorer">
