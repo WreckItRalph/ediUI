@@ -12,4 +12,12 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  moveUp(){
+
+  }
+
+  moveDown(){
+    
+  }
 }
