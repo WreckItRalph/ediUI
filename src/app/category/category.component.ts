@@ -24,21 +24,6 @@ export class CategoryComponent implements OnInit {
 		return `#${this.categoryIndex}`
 	}
 
-
-	moveFieldUp(index: number) {
-		let fieldForm = this.category.controls['fields'];
-		let temp = fieldForm.controls[index-1];
-		fieldForm.controls[index-1] = fieldForm.controls[index];
-		fieldForm.controls[index] = temp;
-	}
-
-	moveFieldDown(index: number) {
-		let fieldForm = this.category.controls['fields'];
-		let temp = fieldForm.controls[index+1];
-		fieldForm.controls[index+1] = fieldForm.controls[index];
-		fieldForm.controls[index] = temp;
-	}
-
 	addField(index: number){
 		let fieldForm = this.category.controls['fields'] as FormArray;
 		let newField = new Field();
@@ -53,7 +38,7 @@ export class CategoryComponent implements OnInit {
 	categoryClicked(){
 		this.clicked = !this.clicked;
 	}
-	
+
 	drop(event: CdkDragDrop<string[]>) {
 		let fieldForm = this.category.controls['fields'] as FormArray;
 		moveItemInArray(fieldForm.controls, event.previousIndex, event.currentIndex);

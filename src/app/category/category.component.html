@@ -10,13 +10,11 @@
     </div>
 
     <div class="col-xs-7 col-xs-offset-1" style="margin-bottom: 10px" cdkDropList (cdkDropListDropped)="drop($event)">
-        <div  cdkDrag cdkDragLockAxis="y" id="{{categoryIndex}}" class="panel-collapse collapse">
-            <div *ngFor="let field of category.controls.fields?.controls; let i = index">
+        <div id="{{categoryIndex}}" class="panel-collapse collapse">
+            <div cdkDrag cdkDragLockAxis="y" *ngFor="let field of category.controls.fields?.controls; let i = index">
                 <div class="pull-right">
                     <i class="fa fa-plus-circle" aria-hidden="true" (click)="addCategory(i)"></i>
                     <i class="fa fa-trash" aria-hidden="true" (click)="deleteCategory(i)"></i>
-                    <i class="fa fa-arrow-circle-up" aria-hidden="true" (click)="moveFieldUp(i)"></i>
-                    <i class="fa fa-arrow-circle-down" aria-hidden="true" (click)="moveFieldDown(i)"></i>
                 </div>
                 <div class="panel-body">
                     <category-field [field]="field"></category-field>
