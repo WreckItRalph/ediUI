@@ -25,5 +25,9 @@ export class Field {
     AL3Id: string;
     FormCaption: string;
 
-    constructor(){}
+    constructor() {
+        this.AL3ShortDescription = '';
+        this.AL3Id = '';
+        this.FormCaption = '';
+    }
 }
