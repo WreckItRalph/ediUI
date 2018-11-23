@@ -8,7 +8,7 @@ div input:focus{
 }
 
 input{
-    background-color: rgb(108, 189, 255);
+    background-color: #95ccff;
     border:none;
     border:1px solid;
     border-radius: 2px;

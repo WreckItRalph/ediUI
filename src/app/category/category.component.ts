@@ -24,22 +24,22 @@ export class CategoryComponent implements OnInit {
 		return `#${this.categoryIndex}`
 	}
 
-	addField(index: number){
+	public addField(index: number){
 		let fieldForm = this.category.controls['fields'] as FormArray;
 		let newField = new Field();
-		this.formService.addControlFromObject(fieldForm, newField, index);
+		this.formService.addControlFromObject(fieldForm, newField, false, index);
 	}
 
-	deleteField(index: number){
+	public deleteField(index: number){
 		let fieldForm = this.category.controls['fields'] as FormArray;
 		fieldForm.removeAt(index);
 	}
 	
-	categoryClicked(){
+	public categoryClicked(){
 		this.clicked = !this.clicked;
 	}
 
-	drop(event: CdkDragDrop<string[]>) {
+	public drop(event: CdkDragDrop<string[]>) {
 		let fieldForm = this.category.controls['fields'] as FormArray;
 		moveItemInArray(fieldForm.controls, event.previousIndex, event.currentIndex);
 	}

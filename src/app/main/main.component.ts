@@ -100,7 +100,7 @@ export class MainComponent implements OnInit {
 		};
 
 		this.ediForm = this.formBuilder.group({});
-		this.formService.createFormFromObject(this.ediForm, this.ediObject);
+		this.formService.createFormFromObject(this.ediForm, this.ediObject,true);
 	}
 
 
@@ -116,7 +116,7 @@ export class MainComponent implements OnInit {
 	addCategory(index: number) {
 		let categoryForm = this.ediForm.controls['categories'] as FormArray;
 		let newCategory = new Category();
-		this.formService.addControlFromObject(categoryForm, newCategory, index);
+		this.formService.addControlFromObject(categoryForm, newCategory,false, index);
 	}
 
 	updateUISettings(index){
