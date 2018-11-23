@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
 import { FieldComponent } from './field/field.component';
 import { MainComponent } from './main/main.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		CategoryComponent,
 		FieldComponent,
-		MainComponent
+		MainComponent,
+		HeaderComponent
 	],
 	imports: [
 		BrowserModule,
