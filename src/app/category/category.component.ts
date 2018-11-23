@@ -14,6 +14,7 @@ export class CategoryComponent implements OnInit {
 	@Input() category: FormArray;
 	@Input() settings:any;
 	@Input() categoryIndex:number;
+	clicked:boolean = false;
 	constructor(private formService: FormService) { }
 
 	ngOnInit() {
@@ -21,21 +22,6 @@ export class CategoryComponent implements OnInit {
 
 	getId(){
 		return `#${this.categoryIndex}`
-	}
-
-
-	moveFieldUp(index: number) {
-		let fieldForm = this.category.controls['fields'];
-		let temp = fieldForm.controls[index-1];
-		fieldForm.controls[index-1] = fieldForm.controls[index];
-		fieldForm.controls[index] = temp;
-	}
-
-	moveFieldDown(index: number) {
-		let fieldForm = this.category.controls['fields'];
-		let temp = fieldForm.controls[index+1];
-		fieldForm.controls[index+1] = fieldForm.controls[index];
-		fieldForm.controls[index] = temp;
 	}
 
 	addField(index: number){
@@ -47,6 +33,10 @@ export class CategoryComponent implements OnInit {
 	deleteField(index: number){
 		let fieldForm = this.category.controls['fields'] as FormArray;
 		fieldForm.removeAt(index);
+	}
+	
+	categoryClicked(){
+		this.clicked = !this.clicked;
 	}
 
 	drop(event: CdkDragDrop<string[]>) {

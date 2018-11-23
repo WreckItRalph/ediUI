@@ -108,20 +108,6 @@ export class MainComponent implements OnInit {
 		console.log(this);
 	}
 
-	moveCategoryUp(index: number) {
-		let categoryForm = this.ediForm.controls['categories'] as FormArray;
-		let temp = categoryForm.controls[index-1];
-		categoryForm.controls[index-1] = categoryForm.controls[index];
-		categoryForm.controls[index] = temp;
-	}
-
-	moveCategoryDown(index: number) {
-		let categoryForm = this.ediForm.controls['categories'] as FormArray;
-		let temp = categoryForm.controls[index+1];
-		categoryForm.controls[index+1] = categoryForm.controls[index];
-		categoryForm.controls[index] = temp;
-	}
-
 	deleteCategory(index: number) {
 		let categoryForm = this.ediForm.controls['categories'] as FormArray;
 		categoryForm.removeAt(index);
