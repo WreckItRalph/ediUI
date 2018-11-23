@@ -62,22 +62,13 @@ export class MainComponent implements OnInit {
 
 		this.ediForm = this.formBuilder.group({});
 		this.createFormFromObject(this.ediForm, this.ediObject);
-
-
-
-	}
-
-
-
-	public dummyClick() {
-		console.log(this);
 	}
 
 	private createFormFromObject(form: FormGroup, object: any) {
 		Object.keys(object).forEach(key => {
-			if (Array.isArray(object[key])){
+			if (Array.isArray(object[key])) {
 				form.addControl(key, this.formBuilder.array([]));
-				if (object[key].length != 0){
+				if (object[key].length != 0) {
 					this.createFormFromArray(form.controls[key] as FormArray, object[key]);
 				}
 			}
@@ -90,7 +81,7 @@ export class MainComponent implements OnInit {
 		});
 	}
 
-	private createFormFromArray(form: FormArray, object: any[]){
+	private createFormFromArray(form: FormArray, object: any[]) {
 		object.forEach(obj => {
 			let temp = this.formBuilder.group({});
 			form.push(temp);
@@ -98,13 +89,29 @@ export class MainComponent implements OnInit {
 		});
 	}
 
-	dummy(){
+	dummy() {
 		console.log(this);
 	}
 
-	
+	moveCategoryUp(index: number) {
 
-	
+	}
+
+	moveCategoryDown(index: number) {
+
+	}
+
+	removeCategory(index: number) {
+		
+	}
+
+	addCategory(index: number) {
+
+	}
+
+
+
+
 
 
 }

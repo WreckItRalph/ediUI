@@ -14,20 +14,6 @@ export class FieldComponent implements OnInit {
   ngOnInit() {
   }
 
-  moveUp() {
 
-  }
-
-  moveDown() {
-
-  }
-
-  removeField() {
-
-  }
-
-  addField() {
-
-  }
 
 }

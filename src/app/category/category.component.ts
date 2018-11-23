@@ -15,19 +15,19 @@ export class CategoryComponent implements OnInit {
 	}
 
 
-	moveUp() {
+	moveFieldUp(index: number) {
 
 	}
 
-	moveDown() {
+	moveFieldDown(index: number) {
 
 	}
 
-	addCategory(){
+	addField(index: number){
 
 	}
 
-	removeCategory(){
+	removeField(index: number){
 
 	}
 }
