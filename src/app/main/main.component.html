@@ -6,6 +6,9 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12" cdkDropList (cdkDropListDropped)="drop($event)">
+          <div *ngIf="ediForm.get('categories')?.controls.length == 0">
+              <input type='button' class="btn btn-primary" value='Add Category' (click)='addCategory()' />
+          </div>
         <div cdkDrag cdkDragLockAxis="y" *ngFor="let category of ediForm.get('categories')?.controls; let i = index">
           <div class="pull-right">
             <i class="fa fa-plus-circle" title="Add Category" aria-hidden="true" (click)="addCategory(i)"></i>
