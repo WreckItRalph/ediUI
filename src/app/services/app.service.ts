@@ -22,7 +22,7 @@ export class AppService {
 			this.agencies$.next([]);
 			this.templates$.next([]);
 			this.versions$.next([]);
-			setTimeout(()=>{this.getAgencies('')},100);
+			
 		});
 	}
 
@@ -31,7 +31,7 @@ export class AppService {
 			this.agencies$.next(res);
 			this.templates$.next([]);
 			this.versions$.next([]);
-			setTimeout(()=>{this.getTemplates('')},100);
+			
 		});
 
 	}
@@ -40,7 +40,7 @@ export class AppService {
 		this.http.get(`${this.serverUrl}/getAllTemplates`).subscribe((res:string[]) => {
 			this.templates$.next(res);
 			this.versions$.next([]);
-			setTimeout(()=>{this.getVersions('')},100);
+			
 		});
 
 	}

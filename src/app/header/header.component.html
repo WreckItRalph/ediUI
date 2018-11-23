@@ -5,7 +5,7 @@
       <label for="business">Line Of Business :</label>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <select id="business" class="form-control" formControlName="lob">
+      <select id="business" class="form-control" (change)='onLOBSelect($event)' formControlName="lob">
         <option *ngFor="let element of (lobValues$ | async)" [value]="element">
           {{element}}
         </option>
@@ -17,7 +17,7 @@
       <label for="agency">Agency :</label>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <select id="agency" class="form-control" formControlName="agency">
+      <select id="agency" class="form-control" (change)='onAgencySelect($event)' formControlName="agency">
         <option *ngFor="let element of (agencies$ | async)" [value]="element">
           {{element}}
         </option>
@@ -29,7 +29,7 @@
       <label for="template">Template :</label>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <select id="template" class="form-control" formControlName="template">
+      <select id="template" class="form-control" (change)='onTemplateSelect($event)' formControlName="template">
         <option *ngFor="let element of (templates$ | async)" [value]="element">
           {{element}}
         </option>
@@ -49,7 +49,7 @@
   </div>
   <div class="row">
     <div class="col-sm-offset-2 col-sm-2" style="text-align: left">
-      <button class="btn btn-primary" (click)="getTemplate()">Load Template</button>
+      <input type='button' class="btn btn-primary" (click)="getTemplate()" [disabled]='form.get("version").value==""' value='Load Template'/>
     </div>
   </div>
 </div>

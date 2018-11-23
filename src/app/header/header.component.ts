@@ -31,19 +31,47 @@ export class HeaderComponent implements OnInit {
 		this.templates$ = this.appService.templates$.asObservable();
 		this.versions$ = this.appService.versions$.asObservable();
 		this.appService.getLOBs();
+		this.lobValues$.subscribe(lobValues => {
+			if (lobValues.length == 0){
+				this.form.get('lob').disable();
+			}else{
+				this.form.get('lob').enable();
+			}
+		});
+		this.agencies$.subscribe(agencies => {
+			if (agencies.length == 0){
+				this.form.get('agency').disable();
+			}else{
+				this.form.get('agency').enable();
+			}
+		});
+		this.templates$.subscribe(templates => {
+			if (templates.length == 0){
+				this.form.get('template').disable();
+			}else{
+				this.form.get('template').enable();
+			}
+		});
+		this.versions$.subscribe(versions => {
+			if (versions.length == 0){
+				this.form.get('version').disable();
+			}else{
+				this.form.get('version').enable();
+			}
+		});
 		
 	}
 
-	public onLOBSelect(LOB: string){
-		this.appService.getAgencies(LOB);
+	public onLOBSelect(event: any){
+		this.appService.getAgencies(event.target.value);
 	}
 
-	public onAgencySelect(agency: string){
-		this.appService.getTemplates(agency);
+	public onAgencySelect(event: any){
+		this.appService.getTemplates(event.target.value);
 	}
 
-	public onTemplateSelect(template: string){
-		this.appService.getVersions(template);
+	public onTemplateSelect(event: any){
+		this.appService.getVersions(event.target.value);
 	}
 
 	public getTemplate(){
