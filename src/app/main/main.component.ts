@@ -14,12 +14,9 @@ const jk = JSON;
 export class MainComponent implements OnInit {
 
 	title = 'ediUI';
+	json = JSON;
 	public ediObject: EDI;
 	public ediForm: FormGroup;
-	public templateList = [
-		't1',
-		't2'
-	]
 	private uiSettings:any[];
 
 	constructor(private formBuilder: FormBuilder,
@@ -131,9 +128,8 @@ export class MainComponent implements OnInit {
 
 	public reset(){
 		this.ediForm = this.formBuilder.group({});
-		this.formService.createFormFromObject(this.ediForm, this.ediObject, true);
+		if(this.ediObject){
+			this.formService.createFormFromObject(this.ediForm, this.ediObject, true);
+		}		
 	}
-
-	json = JSON;
-
 }
