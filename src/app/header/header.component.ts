@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
 		this.agencies$ = this.appService.agencies$.asObservable();
 		this.templates$ = this.appService.templates$.asObservable();
 		this.versions$ = this.appService.versions$.asObservable();
+		this.appService.getLOBs();
 	}
 
 	temp:string[] = [
@@ -37,20 +38,19 @@ export class HeaderComponent implements OnInit {
 	]
 
 	onLOBSelect(LOB: string){
-
+		this.appService.getAgencies(LOB);
 	}
 
 	onAgencySelect(agency: string){
-
+		this.appService.getTemplates(agency);
 	}
 
 	onTemplateSelect(template: string){
-
+		this.appService.getVersions(template);
 	}
 
-	onVersionSelect(version: string){
+	
 
-	}
-
+	
 }
 

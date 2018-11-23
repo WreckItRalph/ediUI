@@ -23,7 +23,7 @@ export class AppService {
 		});
 	}
 
-	getAgencies() {
+	getAgencies(lob: string) {
 		this.http.get(`${this.serverUrl}`).subscribe((res:string[]) => {
 			this.agencies$.next(res);
 			this.templates$.next([]);
@@ -32,7 +32,7 @@ export class AppService {
 
 	}
 
-	getTemplates() {
+	getTemplates(agency: string) {
 		this.http.get(`${this.serverUrl}`).subscribe((res:string[]) => {
 			this.templates$.next(res);
 			this.versions$.next([]);
@@ -40,7 +40,7 @@ export class AppService {
 
 	}
 
-	getVersions() {
+	getVersions(template: string) {
 		this.http.get(`${this.serverUrl}`).subscribe((res:string[]) => {
 			this.versions$.next(res);
 		});
