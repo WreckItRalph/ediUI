@@ -1,7 +1,7 @@
 <div [formGroup]='category'>
 
     <input type="text" formControlName="name" />
-    <input type="text" formControlName="id" /> 
+    <input type="text" formControlName="categoryId" /> 
     <div *ngFor="let field of category.controls.fields?.controls; let i = index">
             <button (click)="addCategory()">Add</button> 
             <button (click)="deleteCategory()">Delete</button>
