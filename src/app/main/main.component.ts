@@ -105,7 +105,11 @@ export class MainComponent implements OnInit {
 	}
 
 
-
+	saveTemplate(){
+		let vals = this.ediForm.getRawValue();
+		vals.templateTimestamp = new Date().toISOString();
+		console.log(vals);
+	}
 
 
 
