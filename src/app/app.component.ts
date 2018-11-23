@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -7,7 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title = 'ediUI';
-	ediObject: any;
+	ediObject: EDI;
+	ediForm: FormGroup;
+	constructor(private formBuilder: FormBuilder){
+
+	}
+
 
 	ngOnInit() {
 		this.ediObject = {
@@ -47,6 +52,63 @@ export class AppComponent {
 				}
 			]
 
-		}
+		};
+
+		this.ediForm = this.formBuilder.group({});
+		this.createFormFromObject(this.ediForm, this.ediObject);
+
+		
+
+	}
+
+	addField(){
+
+	}
+
+	public dummyClick(){
+		console.log(this);
+	}
+
+	private createFormFromObject(form: FormGroup, object: any){
+		Object.keys(object).forEach(key => {
+			if (typeof object[key] == "object"){
+				form.addControl(key,this.formBuilder.group({}));
+				this.createFormFromObject(form.controls[key] as FormGroup, object[key]);
+			}else{
+				form.addControl(key, this.formBuilder.control(''));
+			}
+		});
+	}
+
+	moveUp(event){
+
+	}
+	
+	moveDown(event){
+
 	}
 }
+
+
+
+export class EDI {
+	header: Header;
+	categories: Category[];
+  }
+  
+  interface Category {
+	name: string;
+	categroyID: string;
+	fields: Field[];
+  }
+  
+  interface Field {
+	name: string;
+	id: string;
+  }
+  
+  interface Header {
+	templateId: string;
+	templateName: string;
+	date: string;
+  }
