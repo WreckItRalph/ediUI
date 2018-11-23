@@ -10,7 +10,7 @@ export class AppService {
 	public agencies$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 	public templates$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 	public versions$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
-	public details$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
+	public templateData$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 
 	private serverUrl: string = 'https://insurance-edi.cfapps.io/ediPlatform';
 	
@@ -53,9 +53,9 @@ export class AppService {
 
 	}
 
-	getDetails(s:any){
-		this.http.get(`${this.serverUrl}`).subscribe((res:string[]) => {
-			this.details$.next(res);
+	getDetails({lob,agency,template,version}){
+		this.http.get(`${this.serverUrl}/getTemplate/${lob}/${agency}/${template}/${version}`).subscribe((res:string[]) => {
+			this.templateData$.next(res);
 		});
 	}
 

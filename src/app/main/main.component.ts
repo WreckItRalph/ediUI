@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
-import { FormService } from '../services';
+import { FormService, AppService } from '../services';
 import { EDI, Category } from '../models/EDI';
+import { Observable } from 'rxjs/internal/Observable';
 
 
 @Component({
@@ -21,11 +22,13 @@ export class MainComponent implements OnInit {
 		't2'
 	]
 	private uiSettings:any[];
+	public templateData$: Observable<string[]>;
 
 	constructor(private formBuilder: FormBuilder,
-		private formService: FormService) { }
+		private formService: FormService,private appService: AppService) { }
 
 	ngOnInit() {
+		this.templateData$ = this.appService.templateData$.asObservable();
 		this.ediObject = {
 			templateName: 'templateName',
 			templateTimestamp: '',
