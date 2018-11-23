@@ -6,8 +6,12 @@
         <option *ngFor="let template of templateList">{{template}}</option>
       </select>
     </div>
+    <div class="col-xs-10"></div>
   </div>
-  <div class="col-xs-10"></div>
 </div>
-
+<div class="row">
+  <div class="col-xs-12">
+    <app-category [input]="ediForm"></app-category>
+  </div>
+</div>
 <input type='button' (click)='dummy()' value='Test' />
