@@ -2,3 +2,6 @@ i {
     padding-left:3px;
     font-size:2rem;
 }
+.table-border{
+    border: 1px solid #ccc;
+}

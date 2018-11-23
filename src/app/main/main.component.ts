@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
 		't1',
 		't2'
 	]
+	private uiSettings:any[];
 
 	constructor(private formBuilder: FormBuilder,
 		private formService: FormService) { }
@@ -97,6 +98,10 @@ export class MainComponent implements OnInit {
 		let categoryForm = this.ediForm.controls['categories'] as FormArray;
 		let newCategory = new Category();
 		this.formService.addControlFromObject(categoryForm, newCategory, index);
+	}
+
+	updateUISettings(index){
+		this.uiSettings[index] = !this.uiSettings[index];
 	}
 
 

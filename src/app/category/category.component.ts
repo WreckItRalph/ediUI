@@ -12,9 +12,15 @@ import { Field } from '../models/EDI';
 export class CategoryComponent implements OnInit {
 
 	@Input() category: FormArray;
+	@Input() settings:any;
+	@Input() categoryIndex:number;
 	constructor(private formService: FormService) { }
 
 	ngOnInit() {
+	}
+
+	getId(){
+		return `#${this.categoryIndex}`
 	}
 
 
