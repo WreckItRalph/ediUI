@@ -22,40 +22,42 @@ export class MainComponent implements OnInit {
 
 	ngOnInit() {
 		this.ediObject = {
-			header: {
-				templateId: "Template ID",
-				templateName: "Template Name",
-				date: "Date"
-			},
+			templateName: 'templateName',
+			templateTimestamp: '',
 			categories: [
 				{
 					name: "Category 1",
-					id: "Category ID 1",
+					categoryId: "Category ID 1",
 					fields: [
 						{
-							name: "Field Name 1_1",
-							id: "Field ID 1_1"
+							AL3Id : 'ALS ID 1_1',
+							AL3ShortDescription : 'ALS Des 1_1',
+							FormCaption : 'Cap 1_1'
 						},
 						{
-							name: "Field Name 1_2",
-							id: "Field ID 1_2"
+							AL3Id : 'ALS ID 1_2',
+							AL3ShortDescription : 'ALS Des 1_2',
+							FormCaption : 'Cap 1_2'
 						}
 					]
 				},
 				{
 					name: "Category 2",
-					id: "Category ID 2",
+					categoryId: "Category ID 2",
 					fields: [
 						{
-							name: "Field Name 2_1",
-							id: "Field ID 2_1"
+							AL3Id : 'ALS ID 2_1',
+							AL3ShortDescription : 'ALS Des 2_1',
+							FormCaption : 'Cap 2_1'
 						},
 						{
-							name: "Field Name 2_2",
-							id: "Field ID 2_2"
+							AL3Id : 'ALS ID 2_2',
+							AL3ShortDescription : 'ALS Des 2_2',
+							FormCaption : 'Cap 2_2'
 						}
 					]
 				}
+				
 			]
 
 		};
