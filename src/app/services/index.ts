@@ -1,2 +1,2 @@
-export { FormService } from './form-service.service';
+export { FormService } from './form.service';
 export { AppService} from './app.service';
