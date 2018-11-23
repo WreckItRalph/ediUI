@@ -7,5 +7,33 @@
         </option>
       </select>
     </div>
+    <div class="col-xs-12 col-sm-6">
+      <label for=""></label>
+        <select class="form-control">
+          <option *ngFor="let element of temp" [value]="element">
+            {{element}}
+          </option>
+        </select>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <label for=""></label>
+          <select class="form-control">
+            <option *ngFor="let element of temp" [value]="element">
+              {{element}}
+            </option>
+          </select>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+          <label for=""></label>
+          <input list="browsers" class="form-control">
+
+          <datalist id="browsers" >
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+          </datalist>
+        </div>
   </div>
 </div>
