@@ -1,17 +1,19 @@
 <div class="container">
-  <div class="row header">
-    <div class="col-xs-2 header-items">
-      <label for="template">Slect Template</label>
-      <select id="template" class="form-control">
-        <option *ngFor="let template of templateList">{{template}}</option>
-      </select>
+    <div class="row header">
+      <div class="col-xs-2 header-items">
+        <label for="template">Slect Template</label>
+        <select id="template" class="form-control">
+          <option *ngFor="let template of templateList">{{template}}</option>
+        </select>
+      </div>
+      <div class="col-xs-10"></div>
     </div>
-    <div class="col-xs-10"></div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <app-category [input]="ediForm"></app-category>
+  <div class="row">
+    <div class="col-xs-12">
+      <div *ngFor="let category of form.control.categories">
+          <app-category [category]="category"></app-category>
+      </div>
+    </div>
   </div>
-</div>
-<input type='button' (click)='dummy()' value='Test' />
+  <input type='button' (click)='dummy()' value='Test' />

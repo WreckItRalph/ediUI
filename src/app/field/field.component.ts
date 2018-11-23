@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'category-field',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FieldComponent implements OnInit {
 
+  @Input() field: FormGroup;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  moveUp() {
+
+  }
+
+  moveDown() {
+
+  }
+
+  removeField() {
+
+  }
+
+  addField() {
+
   }
 
 }
