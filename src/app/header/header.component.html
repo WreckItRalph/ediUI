@@ -41,10 +41,11 @@
       <label for="templateV">Template Version :</label>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <input list="browsers" id="templateV" class="form-control" formControlName="version">
-      <datalist id="browsers">
-        <option *ngFor='let element of (versions$ | async)' value="{{element}}">
-      </datalist>
+      <select  id="templateV" class="form-control" formControlName="version">
+        <!-- <datalist id="browsers"> -->
+          <option *ngFor='let element of (versions$ | async)' value="{{element}}">{{element}}</option>
+        <!-- </datalist> -->    
+      </select>
     </div>
   </div>
   <div class="row">
