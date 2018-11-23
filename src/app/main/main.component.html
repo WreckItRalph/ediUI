@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12" cdkDropList (cdkDropListDropped)="drop($event)">
-        <div cdkDrag cdkDragLockAxis="y" *ngFor="let category of ediForm?.controls['categories']?.controls; let i = index">
+        <div cdkDrag cdkDragLockAxis="y" *ngFor="let category of ediForm.get('categories')?.controls; let i = index">
           <div class="pull-right">
             <i class="fa fa-plus-circle" title="Add Category" aria-hidden="true" (click)="addCategory(i)"></i>
             <i class="fa fa-trash" aria-hidden="true" title="Delete Category" (click)="deleteCategory(i)"></i>
@@ -17,10 +17,10 @@
     </div>
     <div class="row" style="margin-top:10px">
       <div class="col-xs-offset-9 col-xs-1">
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" (click)="saveTemplate()">Save</button>
       </div>
       <div class="col-xs-1">
-          <button class="btn btn-primary">Cancel</button>
+          <button class="btn btn-primary" (click)="reset()">Cancel</button>
         </div>
     </div>
   </div>

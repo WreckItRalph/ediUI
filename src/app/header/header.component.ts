@@ -34,23 +34,19 @@ export class HeaderComponent implements OnInit {
 		
 	}
 
-	temp:string[] = [
-		'ABCD', 'EFGH', 'IJKL', 'MNOP'
-	]
-
-	onLOBSelect(LOB: string){
+	public onLOBSelect(LOB: string){
 		this.appService.getAgencies(LOB);
 	}
 
-	onAgencySelect(agency: string){
+	public onAgencySelect(agency: string){
 		this.appService.getTemplates(agency);
 	}
 
-	onTemplateSelect(template: string){
+	public onTemplateSelect(template: string){
 		this.appService.getVersions(template);
 	}
 
-	getTemplate(){
+	public getTemplate(){
 		this.appService.getDetails(this.form.getRawValue());
 	}
 

@@ -6,7 +6,7 @@
     </div>
     <div class="col-xs-12 col-sm-4">
       <select id="business" class="form-control">
-        <option *ngFor="let element of temp" [value]="element">
+        <option *ngFor="let element of (lobValues$ | async)" [value]="element">
           {{element}}
         </option>
       </select>
@@ -18,7 +18,7 @@
     </div>
     <div class="col-xs-12 col-sm-4">
       <select id="agency" class="form-control">
-        <option *ngFor="let element of temp" [value]="element">
+        <option *ngFor="let element of (agencies$ | async)" [value]="element">
           {{element}}
         </option>
       </select>
@@ -30,7 +30,7 @@
     </div>
     <div class="col-xs-12 col-sm-4">
       <select id="template" class="form-control">
-        <option *ngFor="let element of temp" [value]="element">
+        <option *ngFor="let element of (templates$ | async)" [value]="element">
           {{element}}
         </option>
       </select>
@@ -43,11 +43,7 @@
     <div class="col-xs-12 col-sm-4">
       <input list="browsers" id="templateV" class="form-control">
       <datalist id="browsers">
-        <option value="Internet Explorer">
-        <option value="Firefox">
-        <option value="Chrome">
-        <option value="Opera">
-        <option value="Safari">
+        <option *ngFor='let element of (versions$ | async)' value="{{element}}">
       </datalist>
     </div>
   </div>
