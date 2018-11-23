@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
-import { EDI } from '../EDI';
+import { EDI, Category } from '../EDI';
+import { FormService } from '../form-service.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class MainComponent implements OnInit {
 		't2'
 	]
 
-	constructor(private formBuilder: FormBuilder) { }
+	constructor(private formBuilder: FormBuilder,
+		private formService: FormService) { }
 
 	ngOnInit() {
 		this.ediObject = {
@@ -63,33 +65,9 @@ export class MainComponent implements OnInit {
 		};
 
 		this.ediForm = this.formBuilder.group({});
-		this.createFormFromObject(this.ediForm, this.ediObject);
+		this.formService.createFormFromObject(this.ediForm, this.ediObject);
 	}
 
-	private createFormFromObject(form: FormGroup, object: any) {
-		Object.keys(object).forEach(key => {
-			if (Array.isArray(object[key])) {
-				form.addControl(key, this.formBuilder.array([]));
-				if (object[key].length != 0) {
-					this.createFormFromArray(form.controls[key] as FormArray, object[key]);
-				}
-			}
-			else if (typeof object[key] == "object") {
-				form.addControl(key, this.formBuilder.group({}));
-				this.createFormFromObject(form.controls[key] as FormGroup, object[key]);
-			} else {
-				form.addControl(key, this.formBuilder.control(object[key]));
-			}
-		});
-	}
-
-	private createFormFromArray(form: FormArray, object: any[]) {
-		object.forEach(obj => {
-			let temp = this.formBuilder.group({});
-			form.push(temp);
-			this.createFormFromObject(temp, obj);
-		});
-	}
 
 	dummy() {
 		console.log(this);
@@ -109,12 +87,15 @@ export class MainComponent implements OnInit {
 		categoryForm.controls[index] = temp;
 	}
 
-	removeCategory(index: number) {
-
+	deleteCategory(index: number) {
+		let categoryForm = this.ediForm.controls['categories'] as FormArray;
+		categoryForm.removeAt(index);
 	}
 
 	addCategory(index: number) {
-
+		let categoryForm = this.ediForm.controls['categories'] as FormArray;
+		let newCategory = new Category();
+		this.formService.addControlFromObject(categoryForm, newCategory, index);
 	}
 
 
