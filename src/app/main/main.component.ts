@@ -124,11 +124,21 @@ export class MainComponent implements OnInit {
 	}
 
 
+	saveTemplate(){
+		let vals = this.ediForm.getRawValue();
+		vals.templateTimestamp = new Date().toISOString();
+		console.log(vals);
+	}
+
 	drop(event: CdkDragDrop<string[]>) {
 		let categoryForm = this.ediForm.controls['categories'] as FormArray;
 		moveItemInArray(categoryForm.controls, event.previousIndex, event.currentIndex);
 	  }
 
+	reset(){
+		this.ediForm = this.formBuilder.group({});
+		this.formService.createFormFromObject(this.ediForm, this.ediObject);
+	}
 
 
 
