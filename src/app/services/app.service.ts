@@ -12,37 +12,41 @@ export class AppService {
 	public versions$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 	public details$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 
-	private serverUrl: string = '';
+	private serverUrl: string = 'https://insurance-edi.cfapps.io/ediPlatform';
+	
 	constructor(private http: HttpClient) {}
 
 	getLOBs() {
-		this.http.get(`${this.serverUrl}`).subscribe((res:string[]) => {
+		this.http.get(`${this.serverUrl}/getAllLoBs`).subscribe((res:string[]) => {
 			this.lobValues$.next(res);
 			this.agencies$.next([]);
 			this.templates$.next([]);
 			this.versions$.next([]);
+			setTimeout(()=>{this.getAgencies('')},100);
 		});
 	}
 
 	getAgencies(lob: string) {
-		this.http.get(`${this.serverUrl}`).subscribe((res:string[]) => {
+		this.http.get(`${this.serverUrl}/getAllAgencies`).subscribe((res:string[]) => {
 			this.agencies$.next(res);
 			this.templates$.next([]);
 			this.versions$.next([]);
+			setTimeout(()=>{this.getTemplates('')},100);
 		});
 
 	}
 
 	getTemplates(agency: string) {
-		this.http.get(`${this.serverUrl}`).subscribe((res:string[]) => {
+		this.http.get(`${this.serverUrl}/getAllTemplates`).subscribe((res:string[]) => {
 			this.templates$.next(res);
 			this.versions$.next([]);
+			setTimeout(()=>{this.getVersions('')},100);
 		});
 
 	}
 
 	getVersions(template: string) {
-		this.http.get(`${this.serverUrl}`).subscribe((res:string[]) => {
+		this.http.post(`${this.serverUrl}/getFilesName`, {'File-type':'AL3'}).subscribe((res:string[]) => {
 			this.versions$.next(res);
 		});
 

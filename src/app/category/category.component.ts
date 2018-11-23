@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormArray } from '@angular/forms';
-
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { FormService, AppService } from '../services';
 import { Field } from '../models/EDI';
 
@@ -47,5 +47,10 @@ export class CategoryComponent implements OnInit {
 	deleteField(index: number){
 		let fieldForm = this.category.controls['fields'] as FormArray;
 		fieldForm.removeAt(index);
+	}
+
+	drop(event: CdkDragDrop<string[]>) {
+		let fieldForm = this.category.controls['fields'] as FormArray;
+		moveItemInArray(fieldForm.controls, event.previousIndex, event.currentIndex);
 	}
 }
