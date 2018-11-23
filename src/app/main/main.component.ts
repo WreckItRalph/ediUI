@@ -5,7 +5,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { FormService } from '../services';
 import { EDI, Category } from '../models/EDI';
 
-
+const jk = JSON;
 @Component({
 	selector: 'app-main',
 	templateUrl: './main.component.html',
@@ -123,7 +123,7 @@ export class MainComponent implements OnInit {
 		this.uiSettings[index] = !this.uiSettings[index];
 	}
 
-
+	
 	saveTemplate(){
 		let vals = this.ediForm.getRawValue();
 		vals.templateTimestamp = new Date().toISOString();
@@ -140,6 +140,6 @@ export class MainComponent implements OnInit {
 		this.formService.createFormFromObject(this.ediForm, this.ediObject);
 	}
 
-
+	json = JSON;
 
 }

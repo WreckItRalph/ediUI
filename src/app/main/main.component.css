@@ -9,3 +9,8 @@ i {
 .pull-right {
     margin-top: 15px;
 }
+.modal-body{
+    height:500px;
+    overflow:scroll;
+    overflow-x: hidden;
+}

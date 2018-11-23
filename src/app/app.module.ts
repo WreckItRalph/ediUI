@@ -9,6 +9,7 @@ import { CategoryComponent } from './category/category.component';
 import { FieldComponent } from './field/field.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
+import { PreviewModalComponent } from './preview-modal/preview-modal.component';
 
 @NgModule({
 	declarations: [
@@ -16,7 +17,8 @@ import { HeaderComponent } from './header/header.component';
 		CategoryComponent,
 		FieldComponent,
 		MainComponent,
-		HeaderComponent
+		HeaderComponent,
+		PreviewModalComponent
 	],
 	imports: [
 		BrowserModule,
