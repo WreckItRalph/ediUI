@@ -1,11 +1,11 @@
-<h2>Welcome to EdiUI!</h2>
-<div class="container-fluid" style="margin-top: 20px; border-top: 1px solid rgb(185, 184, 184);border-bottom: 1px solid rgb(185, 184, 184)">
+<h2 class="title">Welcome user</h2>
+<div [formGroup]="form" class="container-fluid" style="margin-top: 20px; border-top: 1px solid rgb(185, 184, 184);border-bottom: 1px solid rgb(185, 184, 184)">
   <div class="row">
     <div class="col-xs-12 col-sm-2">
       <label for="business">Line Of Business :</label>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <select id="business" class="form-control">
+      <select id="business" class="form-control" formControlName="lob">
         <option *ngFor="let element of temp" [value]="element">
           {{element}}
         </option>
@@ -17,7 +17,7 @@
       <label for="agency">Agency :</label>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <select id="agency" class="form-control">
+      <select id="agency" class="form-control" formControlName="agency">
         <option *ngFor="let element of temp" [value]="element">
           {{element}}
         </option>
@@ -29,7 +29,7 @@
       <label for="template">Template :</label>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <select id="template" class="form-control">
+      <select id="template" class="form-control" formControlName="template">
         <option *ngFor="let element of temp" [value]="element">
           {{element}}
         </option>
@@ -41,7 +41,7 @@
       <label for="templateV">Template Version :</label>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <input list="browsers" id="templateV" class="form-control">
+      <input list="browsers" id="templateV" class="form-control" formControlName="version">
       <datalist id="browsers">
         <option value="Internet Explorer">
         <option value="Firefox">
@@ -53,7 +53,7 @@
   </div>
   <div class="row">
     <div class="col-sm-offset-2 col-sm-2" style="text-align: left">
-      <button class="btn btn-primary">Load Template</button>
+      <button class="btn btn-primary" (click)="getTemplate()">Load Template</button>
     </div>
   </div>
 </div>

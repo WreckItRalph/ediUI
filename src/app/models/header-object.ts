@@ -1,8 +1,8 @@
 export class HeaderObject {
-    LOB: string;
-    Agency: string;
-    Template: string;
-    Version: string;
+    lob: string = '';
+    agency: string = '';
+    template: string = '';
+    version: string = '';
   
   }
   
