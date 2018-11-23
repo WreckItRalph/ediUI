@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormArray } from '@angular/forms';
-import { Field } from '../EDI';
+
 import { FormService } from '../form-service.service';
+import { Field } from '../models/EDI';
 
 @Component({
 	selector: 'app-category',
