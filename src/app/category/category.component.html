@@ -1,9 +1,13 @@
 <div [formGroup]='category'>
+
     <input type="text" formControlName="name" />
     <input type="text" formControlName="id" /> 
-    <button (click)="addCategory()">Add</button> 
-    <button (click)="deleteCategory()">Delete</button>
-    <button (click)="up()">Up</button>
-    <button (click)="down()">down</button>
-    <category-field *ngFor="let field of category.controls.fields?.controls; let i = index" [field]="field"></category-field>
+    <div *ngFor="let field of category.controls.fields?.controls; let i = index">
+            <button (click)="addCategory()">Add</button> 
+            <button (click)="deleteCategory()">Delete</button>
+            <button (click)="up()">Up</button>
+            <button (click)="down()">down</button>
+            <category-field  [field]="field"></category-field>
+    </div>
+   
 </div>

@@ -13,6 +13,10 @@
     <div class="col-xs-12">
       <div *ngFor="let category of ediForm?.controls['categories']?.controls; let i = index">
           <app-category [category]="category"></app-category>
+          <button (click)="addCategory()">Add</button>
+          <button (click)="deleteCategory()">Delete</button>
+          <button (click)="up()">Up</button>
+          <button (click)="down()">down</button>
       </div>
     </div>
   </div>
