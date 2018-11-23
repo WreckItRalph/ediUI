@@ -2,7 +2,7 @@
     <div class="panel-group" id="accordion" [ngStyle]="{'border-bottom' : clicked ? '1px solid' : ''}">
         <div class="panel panel-default">
             <a data-toggle="collapse" data-parent="#accordion" href="#{{categoryIndex}}">
-                <i [ngClass]="clicked ? 'fa fa-caret-down' : 'fa fa-caret-right'" aria-hidden="true" (click)="categoryClicked()" style="color:black"></i>
+                <i [ngClass]="clicked ? 'fa fa-caret-down' : 'fa fa-caret-right'" aria-hidden="true" (click)="categoryClicked()"></i>
             </a>
             <input type="text" formControlName="name" />
             <input type="text" formControlName="categoryId" />

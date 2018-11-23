@@ -1,6 +1,7 @@
-i {
+i.fa {
     padding-left:3px;
     font-size:2rem;
+    color: white;
 }
 .table-border{
     border: 1px solid #ccc;
@@ -9,6 +10,7 @@ i {
 .row,.row *{
     background-color: #337abc;
     box-shadow: none;
+    color:white;
 }
 
 .row{
@@ -19,10 +21,11 @@ i {
 .row input:focus{
     border:1px solid;
     background-color: white;
+    color:black;
 }
 
 .panel > input{
-    border-right:1px solid #000;
+    border-right:1px solid white;
     border-radius: none;
     text-align: center;
     font-size:16px;
