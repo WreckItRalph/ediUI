@@ -1,4 +1,8 @@
 <div [formGroup]="field">
   <input type="text" formControlName="name" />
   <input type="text" formControlName="id" />
+  <button (click)="addCategory()">Add</button>
+  <button (click)="deleteCategory()">Delete</button>
+  <button (click)="up()">Up</button>
+  <button (click)="down()">down</button>
 </div>
