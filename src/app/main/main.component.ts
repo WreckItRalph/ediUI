@@ -11,7 +11,11 @@ export class MainComponent implements OnInit {
 
   title = 'ediUI';
 	ediObject: EDI;
-	ediForm: FormGroup;
+  ediForm: FormGroup;
+  templateList = [
+    't1',
+    't2'
+  ]  
 
   constructor(private formBuilder: FormBuilder){}
 
