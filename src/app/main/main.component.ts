@@ -6,7 +6,7 @@ import { FormService, AppService } from '../services';
 import { EDI, Category } from '../models/EDI';
 import { Observable } from 'rxjs/internal/Observable';
 
-
+const jk = JSON;
 @Component({
 	selector: 'app-main',
 	templateUrl: './main.component.html',
@@ -15,12 +15,9 @@ import { Observable } from 'rxjs/internal/Observable';
 export class MainComponent implements OnInit {
 
 	title = 'ediUI';
+	json = JSON;
 	public ediObject: EDI;
 	public ediForm: FormGroup;
-	public templateList = [
-		't1',
-		't2'
-	]
 	private uiSettings:any[];
 	public templateData$: Observable<string[]>;
 
@@ -120,8 +117,8 @@ export class MainComponent implements OnInit {
 		this.uiSettings[index] = !this.uiSettings[index];
 	}
 
-
-	public saveTemplate(){
+	
+	saveTemplate(){
 		let vals = this.ediForm.getRawValue();
 		vals.templateTimestamp = new Date().toISOString();
 		console.log(vals);
@@ -134,9 +131,8 @@ export class MainComponent implements OnInit {
 
 	public reset(){
 		this.ediForm = this.formBuilder.group({});
-		this.formService.createFormFromObject(this.ediForm, this.ediObject, true);
+		if(this.ediObject){
+			this.formService.createFormFromObject(this.ediForm, this.ediObject, true);
+		}		
 	}
-
-
-
 }

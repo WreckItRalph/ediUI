@@ -21,10 +21,29 @@
       </div>
       <div class="row" style="margin-top:10px">
         <div class="col-xs-push-10 col-xs-2 btn-group" style="padding:0px">
-          <button class="btn btn-primary" (click)="saveTemplate()" style="width: 50%">Save</button>
-          <button class="btn btn-default" (click)="reset()" style="width: 50%">Cancel</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="width: 50%">Preview</button>
+          <button class="btn btn-default" (click)="reset()" style="width: 50%">Discard</button>
         </div>
       </div>
-    </div>
+
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Template Preview</h4>
+            </div>
+            <div class="modal-body">
+              <app-preview-modal [formData]="ediForm.getRawValue()">
+              </app-preview-modal>
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-primary" value="Save" (click)="saveTemplate()" />
+              <button type="button" class="btn btn-default" data-dismiss="modal">Continue Editing</button>
+            </div>
+          </div>
+        </div>
+      </div>
   </ng-template>
 </div>
