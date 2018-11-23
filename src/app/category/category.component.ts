@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormArray } from '@angular/forms';
 
-import { FormService } from '../form-service.service';
+import { FormService, AppService } from '../services';
 import { Field } from '../models/EDI';
 
 @Component({
