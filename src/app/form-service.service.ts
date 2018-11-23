@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import { FormGroup, FormArray, FormBuilder, FormControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +31,17 @@ export class FormService {
       form.push(temp);
       this.createFormFromObject(temp, obj);
     });
+  }
+
+  public addControlFromObject(form: FormArray, object: any, index: number = -1){
+    let tempForm = this.formBuilder.group({});
+    this.createFormFromObject(tempForm, object);
+    if (index != -1){
+      form.insert(index,tempForm);
+    }else{
+      form.push(tempForm);
+    }
+		
   }
 
 }

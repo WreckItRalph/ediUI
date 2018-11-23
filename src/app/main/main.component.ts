@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
-import { EDI } from '../EDI';
+import { EDI, Category } from '../EDI';
 import { FormService } from '../form-service.service';
 
 
@@ -87,12 +87,15 @@ export class MainComponent implements OnInit {
 		categoryForm.controls[index] = temp;
 	}
 
-	removeCategory(index: number) {
-
+	deleteCategory(index: number) {
+		let categoryForm = this.ediForm.controls['categories'] as FormArray;
+		categoryForm.removeAt(index);
 	}
 
 	addCategory(index: number) {
-
+		let categoryForm = this.ediForm.controls['categories'] as FormArray;
+		let newCategory = new Category();
+		this.formService.addControlFromObject(categoryForm, newCategory, index);
 	}
 
 

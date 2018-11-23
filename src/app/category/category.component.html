@@ -3,8 +3,8 @@
     <input type="text" formControlName="name" />
     <input type="text" formControlName="categoryId" /> 
     <div *ngFor="let field of category.controls.fields?.controls; let i = index">
-            <button (click)="addCategory()">Add</button> 
-            <button (click)="deleteCategory()">Delete</button>
+            <button (click)="addField(i)">Add</button> 
+            <button (click)="deleteField(i)">Delete</button>
             <button (click)="moveFieldUp(i)">Field Up</button>
             <button (click)="moveFieldDown(i)">Field Down</button>
             <category-field  [field]="field"></category-field>
