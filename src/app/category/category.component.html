@@ -1,1 +1,7 @@
+<div [formGroup]='category'>
+C<input type="text" formControlName="name"/>
+C<input type="text" formControlName="categroyID"/>
+<category-field *ngFor="let field of category.controls.fields?.controls" [field]="field">
 
+</category-field>
+</div>
