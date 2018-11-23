@@ -49,7 +49,10 @@ export class HeaderComponent implements OnInit {
 		this.appService.getVersions(template);
 	}
 
-	
+	getTemplate(){
+		this.appService.getDetails(this.form.getRawValue());
+	}
+
 
 	
 }

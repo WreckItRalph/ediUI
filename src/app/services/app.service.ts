@@ -10,6 +10,7 @@ export class AppService {
 	public agencies$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 	public templates$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 	public versions$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
+	public details$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 
 	private serverUrl: string = '';
 	constructor(private http: HttpClient) {}
@@ -45,6 +46,12 @@ export class AppService {
 			this.versions$.next(res);
 		});
 
+	}
+
+	getDetails(s:any){
+		this.http.get(`${this.serverUrl}`).subscribe((res:string[]) => {
+			this.details$.next(res);
+		});
 	}
 
 }
