@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 import { FormService } from '../services';
 import { EDI, Category } from '../models/EDI';
@@ -47,6 +48,38 @@ export class MainComponent implements OnInit {
 				},
 				{
 					name: "Category 2",
+					categoryId: "Category ID 1",
+					fields: [
+						{
+							AL3Id : 'ALS ID 1_1',
+							AL3ShortDescription : 'ALS Des 1_1',
+							FormCaption : 'Cap 1_1'
+						},
+						{
+							AL3Id : 'ALS ID 1_2',
+							AL3ShortDescription : 'ALS Des 1_2',
+							FormCaption : 'Cap 1_2'
+						}
+					]
+				},
+				{
+					name: "Category 3",
+					categoryId: "Category ID 1",
+					fields: [
+						{
+							AL3Id : 'ALS ID 1_1',
+							AL3ShortDescription : 'ALS Des 1_1',
+							FormCaption : 'Cap 1_1'
+						},
+						{
+							AL3Id : 'ALS ID 1_2',
+							AL3ShortDescription : 'ALS Des 1_2',
+							FormCaption : 'Cap 1_2'
+						}
+					]
+				},
+				{
+					name: "Category 4",
 					categoryId: "Category ID 2",
 					fields: [
 						{
@@ -110,6 +143,12 @@ export class MainComponent implements OnInit {
 		vals.templateTimestamp = new Date().toISOString();
 		console.log(vals);
 	}
+	
+	drop(event: CdkDragDrop<string[]>) {
+		let categoryForm = this.ediForm.controls['categories'] as FormArray;
+		moveItemInArray(categoryForm.controls, event.previousIndex, event.currentIndex);
+	  }
+
 
 
 

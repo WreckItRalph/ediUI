@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
 		this.templates$ = this.appService.templates$.asObservable();
 		this.versions$ = this.appService.versions$.asObservable();
 		this.appService.getLOBs();
+		
 	}
 
 	temp:string[] = [
