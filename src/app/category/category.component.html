@@ -9,8 +9,8 @@
         </div>
     </div>
 
-    <div class="col-xs-7 col-xs-offset-1" style="margin-bottom: 10px">
-        <div id="{{categoryIndex}}" class="panel-collapse collapse">
+    <div class="col-xs-7 col-xs-offset-1" style="margin-bottom: 10px" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div  cdkDrag cdkDragLockAxis="y" id="{{categoryIndex}}" class="panel-collapse collapse">
             <div *ngFor="let field of category.controls.fields?.controls; let i = index">
                 <div class="pull-right">
                     <i class="fa fa-plus-circle" aria-hidden="true" (click)="addCategory(i)"></i>
