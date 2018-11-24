@@ -55,7 +55,8 @@ export class MainComponent implements OnInit {
 	public generateDate() {
 		this.ediForm.patchValue({
 			templateTimestamp: new Date().toISOString(),
-			templateName: this.ediObject.templateName + '_' + new Date().toUTCString()
+			templateName: (this.ediObject.templateName.indexOf('_') == -1) ? 
+				this.ediObject.templateName + '_' + new Date().toUTCString() : this.ediObject.templateName.substr(0,this.ediObject.templateName.indexOf('_')) + '_' + new Date().toUTCString()
 		});
 	}
 
