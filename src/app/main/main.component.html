@@ -1,5 +1,5 @@
 <div class="container-fluid" style="margin-bottom:20px">
-  <app-header></app-header>
+  <app-header [form]='headerForm'></app-header>
   <div *ngIf='!!(templateData$ | async)'>
     <div style="text-align: center;margin: 25px">
       <h2>Loaded Template : {{ediObject?.templateName}}</h2>
@@ -35,7 +35,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Preview: {{fileName}}</h4>
+        <h4 class="modal-title">Preview: {{ediForm?.controls['templateName']?.value}}</h4>
       </div>
       <div class="modal-body">
         <app-preview-modal [formData]="ediForm?.getRawValue()">

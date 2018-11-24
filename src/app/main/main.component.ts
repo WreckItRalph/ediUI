@@ -5,6 +5,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { FormService, AppService } from '../services';
 import { EDI, Category } from '../models/EDI';
 import { Observable } from 'rxjs/internal/Observable';
+import { HeaderObject } from '../models/header-object';
 
 const jk = JSON;
 @Component({
@@ -21,10 +22,15 @@ export class MainComponent implements OnInit {
 	public fileName: string;
 	public templateData$: Observable<EDI>;
 	private subscriptions = [];
+	public headerForm: FormGroup;
+
 	constructor(private formBuilder: FormBuilder,
 	private formService: FormService, private appService: AppService) { }
 
 	ngOnInit() {
+		this.headerForm = this.formBuilder.group({});
+		let obj = new HeaderObject();
+		this.formService.createFormFromObject(this.headerForm, obj);
 		this.templateData$ = this.appService.templateData$.asObservable();
 		let templateSubcription = this.templateData$.subscribe(data => {
 			this.ediObject = data;
@@ -53,12 +59,13 @@ export class MainComponent implements OnInit {
 	}
 
 	public generateDate() {
+		let formValue = this.headerForm.getRawValue();
+		let today = new Date();
 		this.ediForm.patchValue({
 			templateTimestamp: new Date().toISOString(),
-			templateName: (this.ediObject.templateName.indexOf('_') == -1) ? 
-				this.ediObject.templateName + '_' + new Date().toUTCString() : this.ediObject.templateName.substr(0,this.ediObject.templateName.indexOf('_')) + '_' + new Date().toUTCString()
+			templateName: `${formValue.agency}-${formValue.template} ${today.toUTCString().substr(today.toUTCString().indexOf(',')+2)}`
 		});
-		this.fileName = this.ediForm.controls.templateName.value;
+		this.fileName = this.ediForm.controls['templateName'].value;
 	}
 
 	public drop(event: CdkDragDrop<string[]>) {

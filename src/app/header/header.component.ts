@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { HeaderObject } from '../models/header-object';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
-	public form: FormGroup;
+	@Input() form: FormGroup;
 	public lobValues$: Observable<string[]>;
 	public agencies$: Observable<string[]>;
 	public templates$: Observable<string[]>;
@@ -23,9 +23,7 @@ export class HeaderComponent implements OnInit {
 			) { }
 
 	ngOnInit() {
-		this.form = this.formBuilder.group({});
-		let obj = new HeaderObject();
-		this.formService.createFormFromObject(this.form, obj);
+		
 		this.lobValues$ = this.appService.lobValues$.asObservable();
 		this.agencies$ = this.appService.agencies$.asObservable();
 		this.templates$ = this.appService.templates$.asObservable();
