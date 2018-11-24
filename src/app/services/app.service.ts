@@ -64,7 +64,7 @@ export class AppService {
 
 	saveTemplate(ediObject) {
 		this.http.post(`${this.serverUrl}//customizedTemplate`, ediObject).subscribe((res) => {
-			console.log(res);
+			//console.log(res);
 			this.resetAllValues();
 		}, (err: any) => {
 			console.error(err);
@@ -72,7 +72,6 @@ export class AppService {
 	}
 
 	resetAllValues() {
-		this.lobValues$.next([]);
 		this.agencies$.next([]);
 		this.templates$.next([]);
 		this.versions$.next([]);
