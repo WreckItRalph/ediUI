@@ -18,88 +18,19 @@ export class MainComponent implements OnInit {
 	json = JSON;
 	public ediObject: EDI;
 	public ediForm: FormGroup;
-	private uiSettings:any[];
-	public templateData$: Observable<string[]>;
 
+	public templateData$: Observable<EDI>;
+	private subscriptions = [];
 	constructor(private formBuilder: FormBuilder,
 		private formService: FormService,private appService: AppService) { }
 
 	ngOnInit() {
 		this.templateData$ = this.appService.templateData$.asObservable();
-		this.ediObject = {
-			templateName: 'templateName',
-			templateTimestamp: '',
-			categories: [
-				{
-					name: "Category 1",
-					categoryId: "Category ID 1",
-					fields: [
-						{
-							AL3Id : 'ALS ID 1_1',
-							AL3ShortDescription : 'ALS Des 1_1',
-							FormCaption : 'Cap 1_1'
-						},
-						{
-							AL3Id : 'ALS ID 1_2',
-							AL3ShortDescription : 'ALS Des 1_2',
-							FormCaption : 'Cap 1_2'
-						}
-					]
-				},
-				{
-					name: "Category 2",
-					categoryId: "Category ID 1",
-					fields: [
-						{
-							AL3Id : 'ALS ID 1_1',
-							AL3ShortDescription : 'ALS Des 1_1',
-							FormCaption : 'Cap 1_1'
-						},
-						{
-							AL3Id : 'ALS ID 1_2',
-							AL3ShortDescription : 'ALS Des 1_2',
-							FormCaption : 'Cap 1_2'
-						}
-					]
-				},
-				{
-					name: "Category 3",
-					categoryId: "Category ID 1",
-					fields: [
-						{
-							AL3Id : 'ALS ID 1_1',
-							AL3ShortDescription : 'ALS Des 1_1',
-							FormCaption : 'Cap 1_1'
-						},
-						{
-							AL3Id : 'ALS ID 1_2',
-							AL3ShortDescription : 'ALS Des 1_2',
-							FormCaption : 'Cap 1_2'
-						}
-					]
-				},
-				{
-					name: "Category 4",
-					categoryId: "Category ID 2",
-					fields: [
-						{
-							AL3Id : 'ALS ID 2_1',
-							AL3ShortDescription : 'ALS Des 2_1',
-							FormCaption : 'Cap 2_1'
-						},
-						{
-							AL3Id : 'ALS ID 2_2',
-							AL3ShortDescription : 'ALS Des 2_2',
-							FormCaption : 'Cap 2_2'
-						}
-					]
-				}
-				
-			]
-
-		};
-
-		this.reset();
+		let templateSubcription = this.templateData$.subscribe(data =>{
+			this.ediObject = data;
+			this.reset();
+		});
+		this.subscriptions.push(templateSubcription);
 	}
 
 	public	deleteCategory(index: number) {
@@ -113,15 +44,11 @@ export class MainComponent implements OnInit {
 		this.formService.addControlFromObject(categoryForm, newCategory,false, index);
 	}
 
-	public updateUISettings(index){
-		this.uiSettings[index] = !this.uiSettings[index];
-	}
 
 	
 	saveTemplate(){
 		let vals = this.ediForm.getRawValue();
 		vals.templateTimestamp = new Date().toISOString();
-		console.log(vals);
 	}
 
 	public drop(event: CdkDragDrop<string[]>) {
@@ -134,5 +61,12 @@ export class MainComponent implements OnInit {
 		if(this.ediObject){
 			this.formService.createFormFromObject(this.ediForm, this.ediObject, true);
 		}		
+	}
+
+	ngOnDestroy(){
+		this.subscriptions.forEach(subscription =>{
+			subscription.unsubscribe();
+		});
+		this.subscriptions = [];
 	}
 }

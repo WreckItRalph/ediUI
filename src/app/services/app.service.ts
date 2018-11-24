@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { EDI } from '../models/EDI';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +11,7 @@ export class AppService {
 	public agencies$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 	public templates$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
 	public versions$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
-	public templateData$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);;
+	public templateData$: BehaviorSubject<EDI> = new BehaviorSubject<EDI>(undefined);;
 
 	private serverUrl: string = 'https://insurance-edi.cfapps.io/ediPlatform';
 	
@@ -54,8 +55,10 @@ export class AppService {
 	}
 
 	getDetails({lob,agency,template,version}){
-		this.http.get(`${this.serverUrl}/getTemplate/${lob}/${agency}/${template}/${version}`).subscribe((res:string[]) => {
+		this.http.get(`${this.serverUrl}/getTemplate/${lob}/${agency}/${template}/${version}.json`).subscribe((res:EDI) => {
 			this.templateData$.next(res);
+		},(err: any)=>{
+			this.templateData$.next(undefined);
 		});
 	}
 
