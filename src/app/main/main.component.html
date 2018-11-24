@@ -46,7 +46,9 @@
 				</app-preview-modal>
 			</div>
 			<div class="modal-footer">
-				<input type="button" class="btn btn-primary" value="Save" (click)="saveTemplate()" />
+        <div style="display:inline"  (click)="saveTemplate()" >
+            <input type="button" class="btn btn-primary" value="Save" data-dismiss="modal"/>
+        </div>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Continue Editing</button>
 			</div>
 		</div>
