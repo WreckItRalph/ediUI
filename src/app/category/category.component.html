@@ -4,8 +4,8 @@
             <a data-toggle="collapse" data-parent="#accordion" href="#{{categoryIndex}}" style="margin-right:10px">
                 <i [ngClass]="clicked ? 'fa fa-caret-down' : 'fa fa-caret-right'" aria-hidden="true" (click)="categoryClicked()"></i>
             </a>
-            <input type="text" formControlName="name" />
-            <input type="text" formControlName="categroyID" />
+            <input type="text" formControlName="name" title="{{category.controls['name'].value}}" />
+            <input type="text" formControlName="categroyID" title="{{category.controls['categroyID'].value}}"/>
         </div>
     </div>
 
