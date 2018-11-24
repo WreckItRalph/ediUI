@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { EDI } from '../models/EDI';
+import * as FileSaver from 'file-saver';
 
 @Injectable({
 	providedIn: 'root'
@@ -65,6 +66,9 @@ export class AppService {
 	saveTemplate(ediObject) {
 		this.http.post(`${this.serverUrl}//customizedTemplate`, ediObject).subscribe((res) => {
 			//console.log(res);
+			var blob = new Blob([JSON.stringify(ediObject)], {type: "text/plain;charset=utf-8"});
+			//new File([blob], ediObject.templateName+'.json', {type: "text/json;charset=utf-8"});
+			FileSaver.saveAs(blob, ediObject.templateName+'.json');
 			this.resetAllValues();
 			setTimeout(()=>{
 				this.getLOBs();
@@ -81,4 +85,6 @@ export class AppService {
 		this.versions$.next([]);
 		this.templateData$.next(undefined);
 	}
+
+
 }
