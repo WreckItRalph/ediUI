@@ -61,9 +61,10 @@ export class MainComponent implements OnInit, OnDestroy {
 	public generateDate() {
 		let formValue = this.headerForm.getRawValue();
 		let today = new Date();
+		let templateName = `${formValue.agency}-${formValue.template} ${today.toUTCString().substr(today.toUTCString().indexOf(',')+2)}`
 		this.ediForm.patchValue({
 			templateTimestamp: new Date().toISOString(),
-			templateName: `${formValue.agency}-${formValue.template} ${today.toUTCString().substr(today.toUTCString().indexOf(',')+2)}`
+			templateName: templateName.replace(/:/g,"-")
 		});
 		this.fileName = this.ediForm.controls['templateName'].value;
 	}

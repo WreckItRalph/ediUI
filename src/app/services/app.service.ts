@@ -66,12 +66,16 @@ export class AppService {
 		this.http.post(`${this.serverUrl}//customizedTemplate`, ediObject).subscribe((res) => {
 			//console.log(res);
 			this.resetAllValues();
+			setTimeout(()=>{
+				this.getLOBs();
+			},10);
 		}, (err: any) => {
 			console.error(err);
 		});
 	}
 
 	resetAllValues() {
+		this.lobValues$.next([]);
 		this.agencies$.next([]);
 		this.templates$.next([]);
 		this.versions$.next([]);

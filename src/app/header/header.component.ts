@@ -33,6 +33,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 		let subscription;
 		subscription = this.lobValues$.subscribe(lobValues => {
 			if (lobValues.length == 0){
+				this.form.patchValue({
+					lob : ''
+				});
 				this.form.get('lob').disable();
 			}else{
 				this.form.get('lob').enable();
