@@ -1,9 +1,14 @@
 <div [formGroup]="field">
     <i class="fa fa-circle" style="padding:10px;font-size:10px;"></i>
-    <input type="text" formControlName="AL3Id" title="{{field.controls['AL3Id'].value}}"/>
-    <input type="text" formControlName="AL3ShortDescription" title="{{field.controls['AL3ShortDescription'].value}}"/>
-    <input type="text" formControlName="FormCaption" title="{{field.controls['FormCaption'].value}}"/>
-    <input type="text" formControlName="Position" title="{{field.controls['Position'].value}}"/>
-    <input type="text" formControlName="Delimiter" title="{{field.controls['Delimiter'].value}}"/>
-    <input type="text" formControlName="Length" title="{{field.controls['Length'].value}}"/>
+    <div *ngFor='let control of field.controls | keyvalue' >
+        <input type="text" formControlName="{{control.key}}" title="{{control.key}}" placeholder="{{control.key}}"/>
+    </div>
+    
+<!--     <input type="text" formControlName="AL3ShortDescription" title="'AL3ShortDescription'" placeholder="'AL3ShortDescription'"/>
+    <input type="text" formControlName="FormCaption" title="'FormCaption'" placeholder="'FormCaption'"/>
+    <input type="text" formControlName="Position" title="'Position'" placeholder="'Position'"/>
+    <input type="text" formControlName="Delimiter" title="'Delimiter'" placeholder="'Delimiter'"/>
+    <input type="text" formControlName="Length" title="'Length'" placeholder="'Length'"/>
+ -->
+
 </div>

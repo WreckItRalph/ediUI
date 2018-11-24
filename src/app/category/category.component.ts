@@ -20,10 +20,6 @@ export class CategoryComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	getId(){
-		return `#${this.categoryIndex}`
-	}
-
 	public addField(index: number = -1){
 		let fieldForm = this.category.controls['fields'] as FormArray;
 		let newField = new Field();
