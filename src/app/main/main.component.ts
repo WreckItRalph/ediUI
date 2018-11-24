@@ -18,11 +18,11 @@ export class MainComponent implements OnInit {
 	json = JSON;
 	public ediObject: EDI;
 	public ediForm: FormGroup;
-
+	public fileName: string;
 	public templateData$: Observable<EDI>;
 	private subscriptions = [];
 	constructor(private formBuilder: FormBuilder,
-		private formService: FormService, private appService: AppService) { }
+	private formService: FormService, private appService: AppService) { }
 
 	ngOnInit() {
 		this.templateData$ = this.appService.templateData$.asObservable();
@@ -57,6 +57,7 @@ export class MainComponent implements OnInit {
 			templateTimestamp: new Date().toISOString(),
 			templateName: this.ediObject.templateName + '_' + new Date().toUTCString()
 		});
+		this.fileName = this.ediForm.controls.templateName.value;
 	}
 
 	public drop(event: CdkDragDrop<string[]>) {
