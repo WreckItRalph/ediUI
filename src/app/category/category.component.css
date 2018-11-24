@@ -34,6 +34,7 @@ input{
     background-color:#fff !important;
     border: 1px solid #666666 !important;
     color:#000 !important;
+    text-overflow: ellipsis;
 }
 
 .panel{

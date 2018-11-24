@@ -62,4 +62,11 @@ export class AppService {
 		});
 	}
 
+	saveTemplate(ediObject){
+		this.http.post(`${this.serverUrl}//customizedTemplate`, ediObject).subscribe((res)=>{
+			console.log(res);
+		}, (err:any) => {
+			console.error(err);
+		});
+	}
 }
