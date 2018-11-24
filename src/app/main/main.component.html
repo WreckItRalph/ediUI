@@ -2,7 +2,7 @@
 	<app-header></app-header>
 	<div *ngIf='!!(templateData$ | async)'>
 		<div style="text-align: center;margin: 25px">
-			<h2>Loaded Template : {{ediForm?.get('templateName')?.value}}</h2>
+			<h2>Loaded Template : {{ediObject?.templateName}}</h2>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -21,7 +21,7 @@
 			</div>
 			<div class="row" style="margin-top:10px">
 				<div class="col-xs-push-10 col-xs-2 btn-group" style="padding:0px">
-					<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="width: 50%">Preview</button>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="width: 50%" (click)='generateDate()'>Preview</button>
 					<button class="btn btn-default" (click)="reset()" style="width: 50%">Discard</button>
 				</div>
 			</div>
