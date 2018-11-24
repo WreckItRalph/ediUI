@@ -10,12 +10,12 @@ export class EDI {
 
 export class Category {
     name: string;
-    categroyID: string;
+    categoryId: string;
     fields: Field[];
 
     constructor() {
         this.name = '';
-        this.categroyID = '',
+        this.categoryId = '',
             this.fields = [];
     }
 }

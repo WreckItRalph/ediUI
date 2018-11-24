@@ -6,12 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./preview-modal.component.css']
 })
 export class PreviewModalComponent implements OnInit {
-
+  json = JSON;
   @Input() public formData;
   constructor() { }
 
   ngOnInit() {
   }
-  json = JSON;
 
 }

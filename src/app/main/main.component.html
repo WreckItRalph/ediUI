@@ -1,36 +1,32 @@
 <div class="container-fluid" style="margin-bottom:20px">
-	<app-header></app-header>
-	<div *ngIf='!!(templateData$ | async)'>
-		<div style="text-align: center;margin: 25px">
-			<h2>Loaded Template : {{ediObject?.templateName}}</h2>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12" cdkDropList (cdkDropListDropped)="drop($event)">
-					<div *ngIf="ediForm.get('categories')?.controls.length == 0">
-						<input type='button' class="btn btn-primary" value='Add Category' (click)='addCategory()' />
-					</div>
-					<div cdkDrag cdkDragLockAxis="y" *ngFor="let category of ediForm?.get('categories')?.controls; let i = index">
-						<div class="pull-right">
-							<i class="fa fa-plus-circle" title="Add Category" aria-hidden="true" (click)="addCategory(i)"></i>
-							<i class="fa fa-trash" aria-hidden="true" title="Delete Category" (click)="deleteCategory(i)"></i>
-						</div>
-						<app-category [category]="category" [categoryIndex]='i'></app-category>
-					</div>
-				</div>
-			</div>
-			<div class="row" style="margin-top:10px">
-				<div class="col-xs-push-10 col-xs-2 btn-group" style="padding:0px">
-					<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="width: 50%" (click)='generateDate()'>Preview</button>
-					<button class="btn btn-default" (click)="reset()" style="width: 50%">Discard</button>
-				</div>
-			</div>
-
-		</div>
-
-	</div>
-
-
+  <app-header></app-header>
+  <div *ngIf='!!(templateData$ | async)'>
+    <div style="text-align: center;margin: 25px">
+      <h2>Loaded Template : {{ediObject?.templateName}}</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12" cdkDropList (cdkDropListDropped)="drop($event)">
+          <div *ngIf="ediForm.get('categories')?.controls.length == 0">
+            <input type='button' class="btn btn-primary" value='Add Category' (click)='addCategory()' />
+          </div>
+          <div cdkDrag cdkDragLockAxis="y" *ngFor="let category of ediForm?.get('categories')?.controls; let i = index">
+            <div class="pull-right">
+              <i class="fa fa-plus-circle" title="Add Category" aria-hidden="true" (click)="addCategory(i)"></i>
+              <i class="fa fa-trash" aria-hidden="true" title="Delete Category" (click)="deleteCategory(i)"></i>
+            </div>
+            <app-category [category]="category" [categoryIndex]='i'></app-category>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div class="col-xs-push-10 col-xs-2 btn-group" style="padding:0px">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="width: 50%" (click)='generateDate()'>Preview</button>
+          <button class="btn btn-default" (click)="reset()" style="width: 50%">Discard</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -46,7 +42,9 @@
         </app-preview-modal>
       </div>
       <div class="modal-footer">
-        <input type="button" class="btn btn-primary" value="Save" (click)="saveTemplate()" />
+          <div style="display:inline"  (click)="saveTemplate()" >
+              <input type="button" class="btn btn-primary" value="Save" data-dismiss="modal"/>
+          </div>
         <button type="button" class="btn btn-default" data-dismiss="modal">Continue Editing</button>
       </div>
     </div>
