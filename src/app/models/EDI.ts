@@ -24,17 +24,17 @@ export class Field {
     AL3ShortDescription: string;
     AL3Id: string;
     FormCaption: string;
-    Length: number;
-  Position: number;
+    Length: string;
+  Position: string;
   Delimiter: string;
 
     constructor() {
         this.AL3ShortDescription = '';
         this.AL3Id = '';
         this.FormCaption = '';
-        this.Length = 0;
-        this.Position = 0;
         this.Delimiter = '';
+        this.Length = '';
+        this.Position = ''
     }
 }
 
