@@ -1,6 +1,6 @@
 <div [formGroup]="field">
     <i class="fa fa-circle" style="padding:10px;font-size:10px;"></i>
-    <input type="text" formControlName="AL3Id" />
-    <input type="text" formControlName="AL3ShortDescription" />
-    <input type="text" formControlName="FormCaption" />
+    <input type="text" formControlName="AL3Id" title="{{field.controls['AL3Id'].value}}"/>
+    <input type="text" formControlName="AL3ShortDescription" title="{{field.controls['AL3ShortDescription'].value}}"/>
+    <input type="text" formControlName="FormCaption" title="{{field.controls['FormCaption'].value}}"/>
 </div>
