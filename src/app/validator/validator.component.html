@@ -1,3 +1,38 @@
-<p>
-  validator works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <h2>Upload File</h2>
+    </div>
+  </div>
+<div class = "form-horizontal">
+<div class="form-group" [formGroup]="form">
+    <label class="col-sm-2 control-label">Format</label>
+    <div class="col-xs-6 col-sm-6">
+        <select class="form-control" formControlName="format">
+            <option [value]="">Format</option>
+            <option [value]="">Format</option>
+            <option [value]="">Format</option>
+        </select>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">File</label>
+    <div class="col-xs-6 col-sm-6">
+        <input type="file" class="form-control" (change)="onFileSelected($event)" formControlName="file"/>
+    </div>
+    <div class="col-xs-2">
+        {{uploadPercentage + "%"}} <button class="btn btn-default" type="button" (click)="upload()">UploadFile</button>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-8">
+      <div class="pull-right">
+        <button type="submit" class="btn btn-primary"> Validate File </button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

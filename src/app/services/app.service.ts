@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { EDI } from '../models/EDI';
 import * as FileSaver from 'file-saver';
 
@@ -13,6 +13,7 @@ export class AppService {
 	public templates$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 	public versions$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 	public templateData$: BehaviorSubject<EDI> = new BehaviorSubject<EDI>(undefined);
+	public fileUpload$: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
 	private serverUrl: string = 'https://insurance-edi.cfapps.io/ediPlatform';
 
@@ -78,12 +79,23 @@ export class AppService {
 		});
 	}
 
+	uploadFile(file:File){
+		let formData = new FormData();
+		formData.append('file', file, file.name);
+		this.http.post('url',formData, {reportProgress:true, observe:'events'}).subscribe(event => {
+			if(event.type === HttpEventType.UploadProgress) {
+				this.fileUpload$.next(Math.round(event.loaded/event.total * 100)+"")
+			}
+		} )
+	}
+
 	resetAllValues() {
 		this.lobValues$.next([]);
 		this.agencies$.next([]);
 		this.templates$.next([]);
 		this.versions$.next([]);
 		this.templateData$.next(undefined);
+		this.fileUpload$.next((''));
 	}
 
 
