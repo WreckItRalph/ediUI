@@ -8,3 +8,13 @@
    max-width: 50%;
    /*  align-self: flex-start; */
 }
+.app-navigation {
+    padding: 0;
+}
+.app-navigation .wrapper{
+    width:80%;
+    margin: 0px auto 0px auto;
+}
+.nav .nav-default {
+    border:none;
+}

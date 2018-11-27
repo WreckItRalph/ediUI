@@ -10,6 +10,8 @@ import { FieldComponent } from './field/field.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { PreviewModalComponent } from './preview-modal/preview-modal.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ValidatorComponent } from './validator/validator.component';
 
 @NgModule({
 	declarations: [
@@ -18,10 +20,12 @@ import { PreviewModalComponent } from './preview-modal/preview-modal.component';
 		FieldComponent,
 		MainComponent,
 		HeaderComponent,
+		ValidatorComponent,
 		PreviewModalComponent
 	],
 	imports: [
 		BrowserModule,
+		AppRoutingModule,
 		FormsModule,
 		ReactiveFormsModule,
 		HttpClientModule,
